@@ -1,0 +1,113 @@
+顺序结构的程序语句只能被执行一次。如果您想要同样的操作执行多次,，就需要使用循环结构。<br />
+<br />
+Java中有三种主要的循环结构：<br />
+<br />
+while 循环<br />
+do&hellip;while 循环<br />
+for 循环<br />
+在Java5中引入了一种主要用于数组的增强型for循环。<br />
+<br />
+while 循环<br />
+while是最基本的循环，它的结构为：<br />
+<br />
+while( 布尔表达式 ) {<br />
+&nbsp; //循环内容<br />
+}<br />
+只要布尔表达式为 true，循环就会一直执行下去。<br />
+<br />
+实例<br />
+Test.java 文件代码：<br />
+public class Test {<br />
+&nbsp; &nbsp;public static void main(String args[]) {<br />
+&nbsp; &nbsp; &nbsp; int x = 10;<br />
+&nbsp; &nbsp; &nbsp; while( x &lt; 20 ) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;System.out.print(&quot;value of x : &quot; + x );<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;x++;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;System.out.print(&quot;\n&quot;);<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp;}<br />
+}<br />
+以上实例编译运行结果如下：<br />
+<br />
+value of x : 10<br />
+value of x : 11<br />
+value of x : 12<br />
+value of x : 13<br />
+value of x : 14<br />
+value of x : 15<br />
+value of x : 16<br />
+value of x : 17<br />
+value of x : 18<br />
+value of x : 19<br />
+do&hellip;while 循环<br />
+对于 while 语句而言，如果不满足条件，则不能进入循环。但有时候我们需要即使不满足条件，也至少执行一次。<br />
+<br />
+do&hellip;while 循环和 while 循环相似，不同的是，do&hellip;while 循环至少会执行一次。<br />
+<br />
+do {<br />
+&nbsp; &nbsp; &nbsp; &nbsp;//代码语句<br />
+}while(布尔表达式);<br />
+注意：布尔表达式在循环体的后面，所以语句块在检测布尔表达式之前已经执行了。 如果布尔表达式的值为 true，则语句块一直执行，直到布尔表达式的值为 false。<br />
+<br />
+实例<br />
+Test.java 文件代码：<br />
+public class Test {<br />
+&nbsp; &nbsp;public static void main(String args[]){<br />
+&nbsp; &nbsp; &nbsp; int x = 10;<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; do{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;System.out.print(&quot;value of x : &quot; + x );<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;x++;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;System.out.print(&quot;\n&quot;);<br />
+&nbsp; &nbsp; &nbsp; }while( x &lt; 20 );<br />
+&nbsp; &nbsp;}<br />
+}<br />
+以上实例编译运行结果如下：<br />
+<br />
+value of x : 10<br />
+value of x : 11<br />
+value of x : 12<br />
+value of x : 13<br />
+value of x : 14<br />
+value of x : 15<br />
+value of x : 16<br />
+value of x : 17<br />
+value of x : 18<br />
+value of x : 19<br />
+for循环<br />
+虽然所有循环结构都可以用 while 或者 do...while表示，但 Java 提供了另一种语句 &mdash;&mdash; for 循环，使一些循环结构变得更加简单。<br />
+<br />
+for循环执行的次数是在执行前就确定的。语法格式如下：<br />
+<br />
+for(初始化; 布尔表达式; 更新) {<br />
+&nbsp; &nbsp; //代码语句<br />
+}<br />
+关于 for 循环有以下几点说明：<br />
+<br />
+最先执行初始化步骤。可以声明一种类型，但可初始化一个或多个循环控制变量，也可以是空语句。<br />
+然后，检测布尔表达式的值。如果为 true，循环体被执行。如果为false，循环终止，开始执行循环体后面的语句。<br />
+执行一次循环后，更新循环控制变量。<br />
+再次检测布尔表达式。循环执行上面的过程。<br />
+实例<br />
+Test.java 文件代码：<br />
+public class Test {<br />
+&nbsp; &nbsp;public static void main(String args[]) {<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; for(int x = 10; x &lt; 20; x = x+1) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;System.out.print(&quot;value of x : &quot; + x );<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;System.out.print(&quot;\n&quot;);<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp;}<br />
+}<br />
+以上实例编译运行结果如下：<br />
+<br />
+value of x : 10<br />
+value of x : 11<br />
+value of x : 12<br />
+value of x : 13<br />
+value of x : 14<br />
+value of x : 15<br />
+value of x : 16<br />
+value of x : 17<br />
+value of x : 18<br />
+value of x : 19

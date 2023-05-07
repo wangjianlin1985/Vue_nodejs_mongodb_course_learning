@@ -1,0 +1,182 @@
+/**********-公共样式-**********/
+
+.box{
+    display: flex;
+}
+@import './response';
+//
+//@font-face {
+//  font-family: "Montserrat-Bold";
+//  src: url("../../font/Montserrat-Bold.eot");
+//}
+//@font-face {
+//  font-family: "Montserrat-Bold";
+//  src: url(http://:/) format("no404"), url("../../font/Montserrat-Bold.woff") format("woff"), url("../../font/Montserrat-Bold.ttf") format("truetype");
+//  font-weight: normal;
+//  font-style: normal;
+//}
+* {
+//  padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    font-family: Arial, "微软雅黑";
+    word-break: break-word;
+}
+//
+//body {
+//  padding: 0px !important;
+//  // overflow: auto !important;
+//}
+//
+//table {
+//  border-collapse: collapse;
+//}
+//
+img {
+    border: none;
+}
+//
+//ul,
+//li {
+//  list-style: none;
+//}
+//
+//h1,
+//h2,
+//h3,
+//h4,
+//h5,
+//h6 {
+//  font-weight: normal
+//}
+//
+//address,
+//caption,
+//cite,
+//code,
+//dfn,
+//em,
+//i,
+//strong,
+//th,
+//var {
+//  font-style: normal !important;
+//  font-weight: normal;
+//}
+//
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+//
+///**********-公共类名-**********/
+//
+//
+///*隐藏*/
+//
+//.hidden {
+//  display: none !important;
+//}
+//
+//.show {
+//  display: block !important;
+//}
+//
+//.hidden2 {
+//  visibility: hidden !important;
+//}
+//
+//.show2 {
+//  visibility: visible !important;
+//}
+.common_min_width {
+    min-width: $common_width;
+    position: relative;
+}
+
+.common_width {
+    width: $common_width;
+    margin: 0 auto;
+}
+@media (max-width: $common_width) {
+    .common_width {
+        width: 100%;
+    }
+    .common_min_width {
+        min-width: 0;
+        width: 100%;
+    }
+}
+@media (max-width: $media) {
+    .common_width {
+        width: 100%;
+    }
+    .common_min_width {
+        min-width: 0;
+        width: 100%;
+    }
+}
+/*清除浮动*/
+.clear_fix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+//
+////请求提示框样式
+.ajax_error_tip_text_box{
+    max-width: 90%;
+    z-index: 10002 !important;
+    img{
+        height: 100%;
+    }
+    .el-message__group{
+        height: auto;
+        p{
+            white-space: normal;
+        }
+    }
+}
+//
+[v-cloak] {
+    display: none;
+}
+
+.table{
+    tr th{
+        background-color: rgba(64, 158, 255, 0.36);
+    }
+}
+
+// 富文本组件 
+div[data-richtext-default-common-box]{
+
+    .rich-text-default {
+        font-family: Arial, Verdana, sans-serif;
+        font-size: 12px;
+        color: #222;
+        // margin-left: 10%;
+        // margin-right: 10%;
+    }
+    .rich-text-default * {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .rich-text-default strong {
+        font-weight: 600;
+    }         
+    .rich-text-default p {
+        margin: 12px 0;
+    }
+    .rich-text-default a {
+        text-decoration: underline;
+        color: #00E;
+    }
+}

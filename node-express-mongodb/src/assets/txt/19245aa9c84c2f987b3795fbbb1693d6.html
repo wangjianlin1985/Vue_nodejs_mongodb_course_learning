@@ -1,0 +1,71 @@
+<p>下面是一个发送简单E-mail的例子。假设你的本地主机已经连接到网络。<br />
+<br />
+SendEmail.java 文件代码：<br />
+// 文件名 SendEmail.java<br />
+&nbsp;<br />
+import java.util.*;<br />
+import javax.mail.*;<br />
+import javax.mail.internet.*;<br />
+import javax.activation.*;<br />
+&nbsp;<br />
+public class SendEmail<br />
+{<br />
+&nbsp; &nbsp;public static void main(String [] args)<br />
+&nbsp; &nbsp;{ &nbsp;&nbsp;<br />
+&nbsp; &nbsp; &nbsp; // 收件人电子邮箱<br />
+&nbsp; &nbsp; &nbsp; String to = &quot;abcd@gmail.com&quot;;<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; // 发件人电子邮箱<br />
+&nbsp; &nbsp; &nbsp; String from = &quot;web@gmail.com&quot;;<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; // 指定发送邮件的主机为 localhost<br />
+&nbsp; &nbsp; &nbsp; String host = &quot;localhost&quot;;<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; // 获取系统属性<br />
+&nbsp; &nbsp; &nbsp; Properties properties = System.getProperties();<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; // 设置邮件服务器<br />
+&nbsp; &nbsp; &nbsp; properties.setProperty(&quot;mail.smtp.host&quot;, host);<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; // 获取默认session对象<br />
+&nbsp; &nbsp; &nbsp; Session session = Session.getDefaultInstance(properties);<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; try{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 创建默认的 MimeMessage 对象<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MimeMessage message = new MimeMessage(session);<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Set From: 头部头字段<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;message.setFrom(new InternetAddress(from));<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Set To: 头部头字段<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;message.addRecipient(Message.RecipientType.TO,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; new InternetAddress(to));<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Set Subject: 头部头字段<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;message.setSubject(&quot;This is the Subject Line!&quot;);<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 设置消息体<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;message.setText(&quot;This is actual message&quot;);<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 发送消息<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Transport.send(message);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;System.out.println(&quot;Sent message successfully....&quot;);<br />
+&nbsp; &nbsp; &nbsp; }catch (MessagingException mex) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mex.printStackTrace();<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp;}<br />
+}<br />
+编译并运行这个程序来发送一封简单的E-mail：<br />
+<br />
+$ java SendEmail<br />
+Sent message successfully....<br />
+如果你想发送一封e-mail给多个收件人，那么使用下面的方法来指定多个收件人ID：<br />
+<br />
+void addRecipients(Message.RecipientType type,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Address[] addresses)<br />
+throws MessagingException<br />
+下面是对于参数的描述：<br />
+<br />
+type:要被设置为 TO, CC 或者 BCC，这里 CC 代表抄送、BCC 代表秘密抄送。举例：Message.RecipientType.TO<br />
+<br />
+addresses: 这是 email ID 的数组。在指定电子邮件 ID 时，你将需要使用 InternetAddress() 方法。</p>

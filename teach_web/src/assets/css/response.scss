@@ -1,0 +1,31 @@
+$common_width: 1170px !default;
+
+$media: 768px;
+
+//lg--≥1200 响应式
+@mixin media-lg() {
+    @media screen and (min-width: 1200px){
+        @content;
+    }
+}
+
+//md--≥992 响应式
+@mixin media-md() {
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+//sm--≥768px 响应式
+@mixin media-sm() {
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+        @content;
+    }
+}
+
+//xs--<768px 响应式
+@mixin media-xs() {
+    @media screen and (max-width: 767px){
+        @content;
+    }
+}

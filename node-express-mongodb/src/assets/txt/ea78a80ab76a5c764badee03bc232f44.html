@@ -1,0 +1,135 @@
+声明数组变量<br />
+首先必须声明数组变量，才能在程序中使用数组。下面是声明数组变量的语法：<br />
+<br />
+dataType[] arrayRefVar; &nbsp; // 首选的方法<br />
+&nbsp;<br />
+或<br />
+&nbsp;<br />
+dataType arrayRefVar[]; &nbsp;// 效果相同，但不是首选方法<br />
+注意: 建议使用 dataType[] arrayRefVar 的声明风格声明数组变量。 dataType arrayRefVar[] 风格是来自 C/C++ 语言 ，在Java中采用是为了让 C/C++ 程序员能够快速理解java语言。<br />
+<br />
+实例<br />
+下面是这两种语法的代码示例：<br />
+<br />
+double[] myList; &nbsp; &nbsp; &nbsp; &nbsp; // 首选的方法<br />
+&nbsp;<br />
+或<br />
+&nbsp;<br />
+double myList[]; &nbsp; &nbsp; &nbsp; &nbsp; // &nbsp;效果相同，但不是首选方法<br />
+创建数组<br />
+Java语言使用new操作符来创建数组，语法如下：<br />
+<br />
+arrayRefVar = new dataType[arraySize];<br />
+上面的语法语句做了两件事：<br />
+<br />
+一、使用 dataType[arraySize] 创建了一个数组。<br />
+二、把新创建的数组的引用赋值给变量 arrayRefVar。<br />
+数组变量的声明，和创建数组可以用一条语句完成，如下所示：<br />
+<br />
+dataType[] arrayRefVar = new dataType[arraySize];<br />
+另外，你还可以使用如下的方式创建数组。<br />
+<br />
+dataType[] arrayRefVar = {value0, value1, ..., valuek};<br />
+数组的元素是通过索引访问的。数组索引从 0 开始，所以索引值从 0 到 arrayRefVar.length-1。<br />
+<br />
+实例<br />
+下面的语句首先声明了一个数组变量 myList，接着创建了一个包含 10 个 double 类型元素的数组，并且把它的引用赋值给 myList 变量。<br />
+<br />
+TestArray.java 文件代码：<br />
+public class TestArray {<br />
+&nbsp; &nbsp;public static void main(String[] args) {<br />
+&nbsp; &nbsp; &nbsp; // 数组大小<br />
+&nbsp; &nbsp; &nbsp; int size = 10;<br />
+&nbsp; &nbsp; &nbsp; // 定义数组<br />
+&nbsp; &nbsp; &nbsp; double[] myList = new double[size];<br />
+&nbsp; &nbsp; &nbsp; myList[0] = 5.6;<br />
+&nbsp; &nbsp; &nbsp; myList[1] = 4.5;<br />
+&nbsp; &nbsp; &nbsp; myList[2] = 3.3;<br />
+&nbsp; &nbsp; &nbsp; myList[3] = 13.2;<br />
+&nbsp; &nbsp; &nbsp; myList[4] = 4.0;<br />
+&nbsp; &nbsp; &nbsp; myList[5] = 34.33;<br />
+&nbsp; &nbsp; &nbsp; myList[6] = 34.0;<br />
+&nbsp; &nbsp; &nbsp; myList[7] = 45.45;<br />
+&nbsp; &nbsp; &nbsp; myList[8] = 99.993;<br />
+&nbsp; &nbsp; &nbsp; myList[9] = 11123;<br />
+&nbsp; &nbsp; &nbsp; // 计算所有元素的总和<br />
+&nbsp; &nbsp; &nbsp; double total = 0;<br />
+&nbsp; &nbsp; &nbsp; for (int i = 0; i &lt; size; i++) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;total += myList[i];<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; System.out.println(&quot;总和为： &quot; + total);<br />
+&nbsp; &nbsp;}<br />
+}<br />
+以上实例输出结果为：<br />
+<br />
+总和为： 11367.373<br />
+下面的图片描绘了数组 myList。这里 myList 数组里有 10 个 double 元素，它的下标从 0 到 9。<br />
+<br />
+java数组结构说明<br />
+<br />
+处理数组<br />
+数组的元素类型和数组的大小都是确定的，所以当处理数组元素时候，我们通常使用基本循环或者 For-Each 循环。<br />
+<br />
+示例<br />
+该实例完整地展示了如何创建、初始化和操纵数组：<br />
+<br />
+TestArray.java 文件代码：<br />
+public class TestArray {<br />
+&nbsp; &nbsp;public static void main(String[] args) {<br />
+&nbsp; &nbsp; &nbsp; double[] myList = {1.9, 2.9, 3.4, 3.5};<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; // 打印所有数组元素<br />
+&nbsp; &nbsp; &nbsp; for (int i = 0; i &lt; myList.length; i++) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;System.out.println(myList[i] + &quot; &quot;);<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; // 计算所有元素的总和<br />
+&nbsp; &nbsp; &nbsp; double total = 0;<br />
+&nbsp; &nbsp; &nbsp; for (int i = 0; i &lt; myList.length; i++) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;total += myList[i];<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; System.out.println(&quot;Total is &quot; + total);<br />
+&nbsp; &nbsp; &nbsp; // 查找最大元素<br />
+&nbsp; &nbsp; &nbsp; double max = myList[0];<br />
+&nbsp; &nbsp; &nbsp; for (int i = 1; i &lt; myList.length; i++) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (myList[i] &gt; max) max = myList[i];<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; System.out.println(&quot;Max is &quot; + max);<br />
+&nbsp; &nbsp;}<br />
+}<br />
+以上实例编译运行结果如下：<br />
+<br />
+1.9<br />
+2.9<br />
+3.4<br />
+3.5<br />
+Total is 11.7<br />
+Max is 3.5<br />
+For-Each 循环<br />
+JDK 1.5 引进了一种新的循环类型，被称为 For-Each 循环或者加强型循环，它能在不使用下标的情况下遍历数组。<br />
+<br />
+语法格式如下：<br />
+<br />
+for(type element: array)<br />
+{<br />
+&nbsp; &nbsp; System.out.println(element);<br />
+}<br />
+实例<br />
+该实例用来显示数组 myList 中的所有元素：<br />
+<br />
+TestArray.java 文件代码：<br />
+public class TestArray {<br />
+&nbsp; &nbsp;public static void main(String[] args) {<br />
+&nbsp; &nbsp; &nbsp; double[] myList = {1.9, 2.9, 3.4, 3.5};<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; // 打印所有数组元素<br />
+&nbsp; &nbsp; &nbsp; for (double element: myList) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;System.out.println(element);<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp;}<br />
+}<br />
+以上实例编译运行结果如下：<br />
+<br />
+1.9<br />
+2.9<br />
+3.4<br />
+3.5
